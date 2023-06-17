@@ -1,9 +1,9 @@
 "use client";
-import React from "react";
+import { ReactNode } from "react";
 import { SessionProvider } from "next-auth/react";
 
 interface Props {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 function Provider({ children }: Props) {

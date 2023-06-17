@@ -1,5 +1,4 @@
 "use client";
-import { useSession } from "next-auth/react";
 import Sidebar from "../components/Molecules/SideBar/Sidebar";
 import Sideboard from "../components/Molecules/SideBoard/SideBoard";
 
@@ -8,11 +7,9 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { data: session } = useSession();
-
   return (
     <div className="flex justify-center bg-black text-white">
-      <Sidebar session={session} />
+      <Sidebar />
       {children}
       <Sideboard />
     </div>

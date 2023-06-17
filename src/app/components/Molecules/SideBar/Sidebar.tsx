@@ -6,14 +6,12 @@ import PersonIcon from "@mui/icons-material/Person";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import NavLink from "../../Atoms/NavLink/NavLink";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { Session } from "next-auth";
 
-interface ISidebar {
-  session: Session | null;
-}
+interface ISidebar {}
 
 const Sidebar: React.FC<ISidebar> = (props: ISidebar) => {
-  const { session } = props;
+  const { data: session } = useSession();
+  console.log(session);
   return (
     <nav className="static mr-10 hidden h-[100vh] flex-col justify-between py-6 lg:flex">
       <div className="flex flex-col gap-6">
