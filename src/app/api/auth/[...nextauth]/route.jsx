@@ -29,9 +29,9 @@ const handler = NextAuth({
           });
 
           let user = await res.json();
-          user = jwt_decode(user.access);
     
           if (user) {
+            user = jwt_decode(user.access);
             // Any object returned will be saved in `user` property of the JWT
             return user
           } else {

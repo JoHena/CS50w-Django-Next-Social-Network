@@ -21,7 +21,7 @@ const Dashboard: React.FC<INavbar> = (props: INavbar) => {
           id="fname"
           name="fname"
         />
-        <button className="rounded-full bg-orange-400 px-4 py-1 font-bold">
+        <button className="rounded-full bg-[#EDAE1D] px-5 py-1 font-bold text-black transition-colors hover:text-[#EEF0F2] active:bg-[#4E598C] active:text-white">
           Tweet
         </button>
       </div>

@@ -11,7 +11,7 @@ interface IPost {
 const Post: React.FC<IPost> = (props: IPost) => {
   const { personalize, user, userAt, content } = props;
   return (
-    <div className={`flex gap-5 border-b ${personalize}`}>
+    <div className={`flex w-full gap-5 border-b ${personalize}`}>
       <div className="relative h-10 w-10 lg:h-12 lg:w-12">
         <Image className="rounded-full" src={"/pfp.png"} fill alt="wad" />
       </div>
