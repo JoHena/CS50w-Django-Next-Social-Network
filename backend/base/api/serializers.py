@@ -1,7 +1,11 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, CharField
 from base.models import Post
 
 class PostSerializer(ModelSerializer):
+
+    username = CharField(
+        source="user.username", read_only=True)
+    
     class Meta:
         model = Post
-        fields = ['id', 'user', 'content', 'likes', 'created_at', 'updated_at']
+        fields = '__all__'

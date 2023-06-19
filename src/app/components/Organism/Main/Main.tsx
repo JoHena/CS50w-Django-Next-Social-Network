@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import Dashboard from "../../Molecules/Dashboard/dashboard";
-import Post from "../../Molecules/Post/Post";
 import SquabbleLogo from "../../Atoms/SquabbleLogo/SquabbleLogo";
+import Feed from "../Feed/Feed";
 
 interface IMain {}
 
@@ -14,12 +14,7 @@ const Main: React.FC<IMain> = () => {
         <SquabbleLogo customize="md:hidden" />
       </h1>
       <Dashboard personalize="p-4 border-b border-[#EDAE1D]" />
-      <Post
-        personalize="p-4 border-[#2e3642]"
-        user="Yon"
-        userAt="Yon"
-        content="Thank you for 23K followers!"
-      />
+      <Feed />
     </div>
   );
 };
