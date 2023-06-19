@@ -11,10 +11,13 @@ interface INavLink {
 const NavLink: React.FC<INavLink> = (props: INavLink) => {
   const { text, href, icon, customize } = props;
   return (
-    <div className="flex w-full gap-4 border-b border-b-transparent pb-2 transition-colors hover:border-b-[#EDAE1D] lg:pl-2 lg:pr-4">
-      {icon}
-      <Link className={"hidden lg:block " + customize} href={href}>
-        {text}
+    <div className="w-full border-b border-b-transparent pb-2 transition-colors hover:border-b-[#EDAE1D] lg:pl-2 lg:pr-4">
+      <Link
+        className={"hidden items-center gap-4 md:flex " + customize}
+        href={href}
+      >
+        {icon}
+        <div className="hidden lg:block">{text}</div>
       </Link>
     </div>
   );

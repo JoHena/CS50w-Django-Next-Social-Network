@@ -7,7 +7,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const BottomNav: React.FC = (props) => {
   return (
-    <nav className="absolute bottom-0 w-full md:hidden">
+    <nav className="sticky bottom-0 w-full border-t border-t-[#2e3642] bg-black pt-5 md:hidden">
       <ul className="flex w-full items-center justify-evenly text-lg">
         <div className="flex w-full items-center justify-center gap-4 border-b border-b-transparent pb-2 transition-colors hover:border-b-[#EDAE1D] lg:pl-2 lg:pr-4">
           <HomeIcon fontSize="large" />
