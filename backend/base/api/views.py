@@ -17,8 +17,8 @@ class PostViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows posts to be viewed or edited.
     """
-    queryset = Post.objects.all().order_by('-created_at')
     serializer_class = PostSerializer
+    queryset = Post.objects.all().order_by('-created_at')
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
