@@ -10,7 +10,7 @@ export default function DashboardLayout({
 }) {
   return (
     <div className="bg-[url('/as.png')]">
-      <div className="flex flex-col justify-start bg-black/80 text-white md:flex-row lg:justify-center">
+      <div className="flex flex-col justify-start bg-black/80 text-white md:flex-row xl:justify-center">
         <Sidebar />
         {children}
         <BottomNav />

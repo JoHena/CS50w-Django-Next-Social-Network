@@ -9,16 +9,16 @@ const BottomNav: React.FC = (props) => {
   return (
     <nav className="sticky bottom-0 w-full border-t border-t-[#2e3642] bg-black pt-5 md:hidden">
       <ul className="flex w-full items-center justify-evenly text-lg">
-        <div className="flex w-full items-center justify-center gap-4 border-b border-b-transparent pb-2 transition-colors hover:border-b-[#EDAE1D] lg:pl-2 lg:pr-4">
+        <div className="flex w-full items-center justify-center gap-4 border-b border-b-transparent pb-2 transition-colors hover:border-b-[#EDAE1D] xl:pl-2 xl:pr-4">
           <HomeIcon fontSize="large" />
         </div>
-        <div className="flex w-full items-center justify-center gap-4 border-b border-b-transparent pb-2 transition-colors hover:border-b-[#EDAE1D] lg:pl-2 lg:pr-4">
+        <div className="flex w-full items-center justify-center gap-4 border-b border-b-transparent pb-2 transition-colors hover:border-b-[#EDAE1D] xl:pl-2 xl:pr-4">
           <SearchIcon fontSize="large" />
         </div>
-        <div className="flex w-full items-center justify-center gap-4 border-b border-b-transparent pb-2 transition-colors hover:border-b-[#EDAE1D] lg:pl-2 lg:pr-4">
+        <div className="flex w-full items-center justify-center gap-4 border-b border-b-transparent pb-2 transition-colors hover:border-b-[#EDAE1D] xl:pl-2 xl:pr-4">
           <FavoriteIcon fontSize="large" />
         </div>
-        <div className="flex w-full items-center justify-center gap-4 border-b border-b-transparent pb-2 transition-colors hover:border-b-[#EDAE1D] lg:pl-2 lg:pr-4">
+        <div className="flex w-full items-center justify-center gap-4 border-b border-b-transparent pb-2 transition-colors hover:border-b-[#EDAE1D] xl:pl-2 xl:pr-4">
           <AccountCircleIcon fontSize="large" />
         </div>
       </ul>

@@ -8,8 +8,8 @@ interface IMain {}
 
 const Main: React.FC<IMain> = () => {
   return (
-    <div className="flex h-full w-full flex-col items-center border-x border-[#2e3642] md:basis-1/2 lg:basis-1/3 lg:items-start">
-      <h1 className="sticky top-0 z-40 flex w-full justify-center bg-black p-5 pt-3 text-lg font-bold md:justify-start ">
+    <div className="flex h-full w-full flex-col items-center border-x border-[#2e3642] md:basis-3/5 xl:basis-1/3 xl:items-start">
+      <h1 className="sticky top-0 z-40 flex w-full justify-center bg-black p-5 pt-3 text-xl font-bold md:justify-start ">
         <div className="hidden md:block">Home</div>
         <SquabbleLogo customize="md:hidden" />
       </h1>

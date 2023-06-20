@@ -4,10 +4,12 @@ import SearchBar from "../../Atoms/SearchBAr/Searchbar";
 
 interface ISideboard {}
 
+//Mock info
+
 const Sideboard: React.FC<ISideboard> = (props: ISideboard) => {
   return (
     <>
-      <div className="hidden basis-1/3 flex-col gap-3 py-2 pl-6 md:flex">
+      <div className="hidden flex-col gap-3 py-2 pl-6 md:flex xl:basis-1/3">
         <div className="sticky top-2">
           <SearchBar />
           <div className="bg-tran flex flex-col rounded-md p-4 text-white shadow-md">

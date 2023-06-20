@@ -11,7 +11,7 @@ const SquabbleLogo: React.FC<ISquabbleLogo> = (props: ISquabbleLogo) => {
   return (
     <div className={"flex items-center gap-3 text-[#F0BC42] " + customize}>
       <TextsmsIcon color="inherit" fontSize="large" />
-      <div className={"pb-2 text-lg font-bold lg:block " + textClass}>
+      <div className={"pb-2 text-lg font-bold xl:block " + textClass}>
         Squabble
       </div>
     </div>
