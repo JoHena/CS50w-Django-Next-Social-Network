@@ -51,7 +51,7 @@ const Dashboard: React.FC<INavbar> = (props: INavbar) => {
           onClick={handleButtonClick}
           disabled={inputValue.length === 0}
         >
-          Tweet
+          {inputValue.length > 0 ? "Squabble" : "Concur"}
         </button>
       </div>
     </div>
