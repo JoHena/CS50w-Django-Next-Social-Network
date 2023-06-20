@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import EditIcon from "@mui/icons-material/Edit";
+import { useSession } from "next-auth/react";
 
 export interface IPost {
   id: number;
@@ -30,7 +31,7 @@ const Post: React.FC<IPost> = (props: IPost) => {
         </div>
 
         <p className="inline-block whitespace-break-spaces break-all">
-          awdwa-udaw wa iaw0diaw-0id-ia dwa waidawpdpojawopajwpodawjop
+          {content}
         </p>
 
         <div className="mt-2 flex w-full items-center justify-between">

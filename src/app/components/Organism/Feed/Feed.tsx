@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Post, { IPost } from "../../Molecules/Post/Post";
 
-const Feed: React.FC = (props) => {
+interface IFeed {
+  code: number;
+}
+
+const Feed: React.FC<IFeed> = (props: IFeed) => {
+  const { code } = props;
   const [data, setData] = useState<IPost[]>([]);
 
   useEffect(() => {
@@ -14,10 +19,11 @@ const Feed: React.FC = (props) => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [code]);
 
   return (
     <div className="h-full w-full">
+      <div hidden>{code}</div>
       {data.map((post) => (
         <Post key={post.id} {...post} />
       ))}

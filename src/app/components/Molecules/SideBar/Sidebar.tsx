@@ -9,6 +9,7 @@ import SquabbleLogo from "../../Atoms/SquabbleLogo/SquabbleLogo";
 
 const Sidebar: React.FC = (props) => {
   const { data: session } = useSession();
+
   return (
     <nav className="sticky top-0 hidden h-[100vh] items-center justify-between py-6 md:flex md:w-1/12 md:flex-col xl:mr-10 xl:basis-1/4 xl:items-end xl:pr-20">
       <div className="flex h-full flex-col justify-between">
