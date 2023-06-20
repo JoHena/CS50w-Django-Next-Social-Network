@@ -17,11 +17,11 @@ const Feed: React.FC = (props) => {
   }, []);
 
   return (
-    <>
+    <div className="h-full w-full">
       {data.map((post) => (
         <Post key={post.id} {...post} />
       ))}
-    </>
+    </div>
   );
 };
 

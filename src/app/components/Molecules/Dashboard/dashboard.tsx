@@ -9,7 +9,7 @@ const Dashboard: React.FC<INavbar> = (props: INavbar) => {
   const { personalize } = props;
   return (
     <div className={`flex w-full gap-5 ${personalize}`}>
-      <div className="relative h-10 w-12 lg:h-12 lg:w-14">
+      <div className="relative h-10 min-h-[2.4rem] w-10 min-w-[2.4rem]">
         <Image className="rounded-full" src={"/pfp.png"} fill alt="wad" />
       </div>
 

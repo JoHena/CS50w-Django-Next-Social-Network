@@ -16,12 +16,11 @@ export interface IPost {
 
 const Post: React.FC<IPost> = (props: IPost) => {
   const { username, content, total_likes, created_at } = props;
-  console.log(props);
   return (
     <div
       className={`flex w-full gap-5 border-b border-[#2e3642] px-4 pb-2 pt-4`}
     >
-      <div className="relative h-9 w-10 lg:h-12 lg:w-14">
+      <div className="relative h-10 min-h-[2.4rem] w-10 min-w-[2.4rem]">
         <Image className="rounded-full" src={"/pfp.png"} fill alt="wad" />
       </div>
 
@@ -29,15 +28,17 @@ const Post: React.FC<IPost> = (props: IPost) => {
         <div className="post-user">
           {username} <strong className="text-[#EDAE1D]">@{username}</strong>{" "}
         </div>
-        <p>{content}</p>
-        <div>
-          <div className="mt-2 flex items-center justify-between">
-            <div className="flex gap-2">
-              <FavoriteIcon fontSize="small" />
-              {total_likes}
-            </div>
-            <EditIcon fontSize="small" />
+
+        <p className="inline-block whitespace-break-spaces break-all">
+          awdwa-udaw wa iaw0diaw-0id-ia dwa waidawpdpojawopajwpodawjop
+        </p>
+
+        <div className="mt-2 flex w-full items-center justify-between">
+          <div className="flex gap-2">
+            <FavoriteIcon fontSize="small" />
+            {total_likes}
           </div>
+          <EditIcon fontSize="small" />
         </div>
       </div>
     </div>
