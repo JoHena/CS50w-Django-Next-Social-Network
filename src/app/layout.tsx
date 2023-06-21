@@ -1,4 +1,7 @@
 import Provider from "./Provider";
+import BottomNav from "./components/Molecules/BottomNav/page";
+import Sidebar from "./components/Molecules/SideBar/Sidebar";
+import Sideboard from "./components/Molecules/SideBoard/SideBoard";
 import "./globals.css";
 
 export const metadata = {
@@ -14,7 +17,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-black">
-        <Provider>{children}</Provider>
+        <Provider>
+          {" "}
+          <div className="bg-[url('/as.png')]">
+            <div className="flex flex-col justify-start bg-black/80 text-white md:flex-row xl:justify-center">
+              <Sidebar />
+              {children}
+              <BottomNav />
+              <Sideboard />
+            </div>
+          </div>
+        </Provider>
       </body>
     </html>
   );

@@ -3,7 +3,8 @@ import axios from "axios";
 import Post, { IPost } from "../../Molecules/Post/Post";
 
 interface IFeed {
-  code: number;
+  code?: number;
+  user?: string;
 }
 
 const Feed: React.FC<IFeed> = (props: IFeed) => {
@@ -23,7 +24,6 @@ const Feed: React.FC<IFeed> = (props: IFeed) => {
 
   return (
     <div className="h-full w-full">
-      <div hidden>{code}</div>
       {data.map((post) => (
         <Post key={post.id} {...post} />
       ))}

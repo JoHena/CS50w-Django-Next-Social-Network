@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import HomeIcon from "@mui/icons-material/Home";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
