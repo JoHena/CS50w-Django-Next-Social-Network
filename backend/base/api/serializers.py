@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer, CharField, SerializerMethodField
-from base.models import Post
+from base.models import Post, User
 
 class PostSerializer(ModelSerializer):
 
@@ -15,3 +15,8 @@ class PostSerializer(ModelSerializer):
 
     def get_total_likes(self, obj):
       return obj.likes.count() if obj.likes.exists() else 0
+    
+class UserSerializer(ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id','username']

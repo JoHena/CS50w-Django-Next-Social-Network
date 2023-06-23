@@ -4,7 +4,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import EmailIcon from "@mui/icons-material/Email";
 import Feed from "../components/Organism/Feed/Feed";
 
-export default function Page({ params }: { params: { profile: string } }) {
+export default function Page({ params }: { params: { profile: string[] } }) {
+  console.log(params);
   return (
     <div className="flex h-full w-full flex-col items-center border-x border-[#2e3642] md:basis-3/5 xl:basis-1/3 xl:items-start">
       <h1 className="sticky top-0 z-40 flex w-full justify-center bg-black p-5 pt-3 text-xl font-bold md:justify-start ">
@@ -51,7 +52,6 @@ export default function Page({ params }: { params: { profile: string } }) {
         </div>
       </div>
 
-      {/* Send user info to Feed */}
       <Feed />
     </div>
   );

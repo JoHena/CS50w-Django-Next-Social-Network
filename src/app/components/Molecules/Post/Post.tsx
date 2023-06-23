@@ -3,6 +3,7 @@ import React from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import EditIcon from "@mui/icons-material/Edit";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 
 export interface IPost {
   id: number;
@@ -16,7 +17,7 @@ export interface IPost {
 }
 
 const Post: React.FC<IPost> = (props: IPost) => {
-  const { username, content, total_likes, created_at } = props;
+  const { user, username, content, total_likes, created_at } = props;
   return (
     <div
       className={`flex w-full gap-5 border-b border-[#2e3642] px-4 pb-2 pt-4`}
@@ -26,9 +27,13 @@ const Post: React.FC<IPost> = (props: IPost) => {
       </div>
 
       <div className="flex w-full flex-col">
-        <div className="post-user">
+        <Link
+          href={`/${username}/${user}`}
+          as={`/${username}`}
+          className="post-user"
+        >
           {username} <strong className="text-[#EDAE1D]">@{username}</strong>{" "}
-        </div>
+        </Link>
 
         <p className="inline-block whitespace-break-spaces break-all">
           {content}
