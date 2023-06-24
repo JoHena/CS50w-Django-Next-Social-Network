@@ -3,13 +3,33 @@ import Image from "next/image";
 import MenuIcon from "@mui/icons-material/Menu";
 import EmailIcon from "@mui/icons-material/Email";
 import Feed from "../components/Organism/Feed/Feed";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+export interface IUser {
+  id: string;
+  username: string;
+}
 
 export default function Page({ params }: { params: { profile: string[] } }) {
-  console.log(params);
+  const [userInfo, setUserInfo] = useState<IUser>();
+
+  useEffect(() => {
+    axios
+      .get(`http://127.0.0.1:8000/api/users/?username=${params.profile}`)
+      .then(({ data }) => {
+        setUserInfo(data[0]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="flex h-full w-full flex-col items-center border-x border-[#2e3642] md:basis-3/5 xl:basis-1/3 xl:items-start">
       <h1 className="sticky top-0 z-40 flex w-full justify-center bg-black p-5 pt-3 text-xl font-bold md:justify-start ">
-        <div className="hidden md:block">Doobus Goobus</div>
+        <div className="hidden md:block">{params.profile}</div>
       </h1>
 
       <div className="relative h-48 w-full">
@@ -34,12 +54,15 @@ export default function Page({ params }: { params: { profile: string[] } }) {
         </div>
 
         <div className="pb-5">
-          <div className="text-xl font-bold">Doobus Goobus</div>
-          <div className="font-bold text-[#EDAE1D]">@Doobus Goobus</div>
+          <div className="text-xl font-bold">{params.profile}</div>
+          <div className="font-bold text-[#EDAE1D]">@{params.profile}</div>
         </div>
 
         <div className="mb-3">
-          ▼22▼ Versatile Creator ▼Comission close⛧▼I dont draw NSFW▼ 🏳️‍🌈🇯🇵🇵🇭
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Error ex
+          deserunt repellendus possimus quaerat impedit necessitatibus laborum
+          odio? Suscipit assumenda accusamus incidunt. Mollitia, eligendi sed
+          magni exercitationem laborum veniam doloribus!
         </div>
 
         <div className="flex gap-2">
@@ -52,7 +75,7 @@ export default function Page({ params }: { params: { profile: string[] } }) {
         </div>
       </div>
 
-      <Feed />
+      {userInfo && <Feed user={userInfo?.id} />}
     </div>
   );
 }

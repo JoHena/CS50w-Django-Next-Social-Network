@@ -8,19 +8,20 @@ interface IFeed {
 }
 
 const Feed: React.FC<IFeed> = (props: IFeed) => {
-  const { code } = props;
+  const { code, user } = props;
+  const [userId, setUserId] = useState("");
   const [data, setData] = useState<IPost[]>([]);
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/posts/")
+      .get("http://127.0.0.1:8000/api/posts/" + (user ? "?user=" + user : ""))
       .then(({ data }) => {
         setData(data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [code]);
+  }, [code, user]);
 
   return (
     <div className="h-full w-full">
