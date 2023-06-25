@@ -43,7 +43,7 @@ const Sidebar: React.FC = (props) => {
         </div>
         {!session && (
           <button
-            className="mt-10 w-full rounded-full bg-[#EDAE1D] p-1 font-bold text-black transition-colors hover:text-[#EEF0F2] active:bg-[#4E598C] active:text-white xl:px-5"
+            className="mt-10 w-full rounded-full bg-[#EDAE1D] p-1 font-bold text-black transition-colors hover:text-[#EEF0F2] active:bg-[#065A82] active:text-white xl:px-5"
             onClick={() => signIn()}
           >
             <div className="hidden xl:block">Sign In</div>

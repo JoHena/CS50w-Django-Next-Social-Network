@@ -1,5 +1,5 @@
 import Provider from "./Provider";
-import BottomNav from "./components/Molecules/BottomNav/page";
+import BottomNav from "./components/Molecules/BottomNav/BottomNav";
 import Sidebar from "./components/Molecules/SideBar/Sidebar";
 import Sideboard from "./components/Molecules/SideBoard/SideBoard";
 import "./globals.css";

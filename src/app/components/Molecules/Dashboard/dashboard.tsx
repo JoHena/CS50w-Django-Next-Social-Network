@@ -47,7 +47,7 @@ const Dashboard: React.FC<INavbar> = (props: INavbar) => {
           autoComplete="off"
         />
         <button
-          className="rounded-full bg-[#EDAE1D] px-5 py-1 font-bold text-black transition-colors hover:text-[#EEF0F2] active:bg-[#4E598C] active:text-white disabled:bg-[#4E598C] disabled:text-white"
+          className="rounded-full bg-[#EDAE1D] px-5 py-1 font-bold text-black transition-colors hover:text-[#EEF0F2] active:bg-[#065A82] active:text-white disabled:bg-[#065A82] disabled:text-white"
           onClick={handleButtonClick}
           disabled={inputValue.length === 0}
         >

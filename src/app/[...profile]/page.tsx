@@ -18,7 +18,7 @@ export default function Page({ params }: { params: { profile: string[] } }) {
     axios
       .get(`http://127.0.0.1:8000/api/users/?username=${params.profile}`)
       .then(({ data }) => {
-        setUserInfo(data[0]);
+        setUserInfo(data.results[0]);
       })
       .catch((error) => {
         console.log(error);
@@ -47,7 +47,7 @@ export default function Page({ params }: { params: { profile: string[] } }) {
           <div className="ml-2 flex items-center gap-3">
             <MenuIcon />
             <EmailIcon />
-            <button className="rounded-full bg-[#EDAE1D] px-4 py-2 font-bold text-black transition-colors hover:text-[#EEF0F2] active:bg-[#4E598C] active:text-white disabled:bg-[#4E598C] disabled:text-white">
+            <button className="rounded-full bg-[#EDAE1D] px-4 py-2 font-bold text-black transition-colors hover:text-[#EEF0F2] active:bg-[#065A82] active:text-white">
               Follow
             </button>
           </div>

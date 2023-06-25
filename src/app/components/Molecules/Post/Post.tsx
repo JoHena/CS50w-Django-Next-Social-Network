@@ -2,19 +2,8 @@ import Image from "next/image";
 import React from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import EditIcon from "@mui/icons-material/Edit";
-import { useSession } from "next-auth/react";
 import Link from "next/link";
-
-export interface IPost {
-  id: number;
-  user: string;
-  username: string;
-  content: string;
-  likes: number[];
-  total_likes: number;
-  created_at: string;
-  updated_at: string;
-}
+import { IPost } from "@/app/typing";
 
 const Post: React.FC<IPost> = (props: IPost) => {
   const { user, username, content, total_likes, created_at } = props;

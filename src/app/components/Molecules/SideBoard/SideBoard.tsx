@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import SearchBar from "../../Atoms/SearchBAr/Searchbar";
+import SearchBar from "../../Atoms/SearchBar/Searchbar";
 
 interface ISideboard {}
 
