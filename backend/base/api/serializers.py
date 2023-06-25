@@ -17,6 +17,16 @@ class PostSerializer(ModelSerializer):
       return obj.likes.count() if obj.likes.exists() else 0
     
 class UserSerializer(ModelSerializer):
+
+    followings = SerializerMethodField(
+        source="get_followings", read_only=True)
+    
+    # total_followings = CharField(
+    #     source="get_total_followings", read_only=True)
+    
     class Meta:
         model = User
-        fields = ['id','username']
+        fields = ['id','username','followings']
+    
+    def get_followings(self, obj):
+        return obj.profile.followings.all().values_list('id', flat=True)
