@@ -31,6 +31,8 @@ const handler = NextAuth({
           let user = await res.json();
     
           if (user) {
+            // localStorage.setItem("access", user.access)
+            // localStorage.setItem("refress", user.refresh)
             user = jwt_decode(user.access);
             // Any object returned will be saved in `user` property of the JWT
             return user

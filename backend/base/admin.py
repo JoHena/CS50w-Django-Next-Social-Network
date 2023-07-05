@@ -15,3 +15,4 @@ class UserAdmin(BaseUserAdmin):
 admin.site.register(Post)
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
+admin.site.register(Profile)

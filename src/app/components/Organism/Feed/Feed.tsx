@@ -6,28 +6,36 @@ import { Pagerequest } from "@/app/typing";
 
 interface IFeed {
   code?: number;
-  user?: string;
+  user?: number;
+  onlyFollowing?: boolean;
 }
 
 const Feed: React.FC<IFeed> = (props: IFeed) => {
-  const { code, user } = props;
+  const { code, user, onlyFollowing } = props;
   const [data, setData] = useState<Pagerequest>();
   const [page, setPage] = useState<number>(1);
 
   useEffect(() => {
-    axios
-      .get(
+    function setUrl(onlyFollowing?: boolean) {
+      if (onlyFollowing) {
+        return `http://127.0.0.1:8000/api/posts/${user}/getFollowers/?page=${page}`;
+      }
+
+      return (
         "http://127.0.0.1:8000/api/posts/" +
-          (user ? `?page=${page}&?user=${user}` : `?page=${page}`)
-      )
+        (user ? `?page=${page}&user=${user}` : `?page=${page}`)
+      );
+    }
+
+    axios
+      .get(setUrl(onlyFollowing))
       .then(({ data }) => {
         setData(data);
-        console.log(page);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [code, user, page]);
+  }, [code, user, page, onlyFollowing]);
 
   return (
     <>

@@ -23,7 +23,6 @@ const Dashboard: React.FC<INavbar> = (props: INavbar) => {
     };
 
     axios.post("http://127.0.0.1:8000/api/posts/", data).then((response) => {
-      console.log(response);
       setInputValue("");
       setCodeValue(response.data.code);
     });

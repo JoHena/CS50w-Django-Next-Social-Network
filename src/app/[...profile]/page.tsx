@@ -5,26 +5,43 @@ import EmailIcon from "@mui/icons-material/Email";
 import Feed from "../components/Organism/Feed/Feed";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
 
 export interface IUser {
-  id: string;
+  id: number;
   username: string;
+  followings: number[];
+  followers: number[];
 }
 
 export default function Page({ params }: { params: { profile: string[] } }) {
   const [userInfo, setUserInfo] = useState<IUser>();
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     axios
       .get(`http://127.0.0.1:8000/api/users/?username=${params.profile}`)
       .then(({ data }) => {
         setUserInfo(data.results[0]);
+        console.log(session?.user?.followings.includes(userInfo?.id!));
       })
       .catch((error) => {
         console.log(error);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const handleButtonClick = () => {
+    const data = {
+      user: session?.user?.user_id,
+    };
+
+    axios
+      .patch(`http://127.0.0.1:8000/api/users/${userInfo?.id}/follow/`, data)
+      .then((response) => {
+        console.log(response);
+      });
+  };
 
   return (
     <div className="flex h-full w-full flex-col items-center border-x border-[#2e3642] md:basis-3/5 xl:basis-1/3 xl:items-start">
@@ -47,8 +64,23 @@ export default function Page({ params }: { params: { profile: string[] } }) {
           <div className="ml-2 flex items-center gap-3">
             <MenuIcon />
             <EmailIcon />
-            <button className="rounded-full bg-[#EDAE1D] px-4 py-2 font-bold text-black transition-colors hover:text-[#EEF0F2] active:bg-[#065A82] active:text-white">
-              Follow
+            <button
+              className={
+                "rounded-full px-4 py-2 font-bold transition-colors " +
+                (session?.user?.followings.includes(userInfo?.id!)
+                  ? "bg-[#065A82] text-white hover:bg-[red] hover:text-white hover:after:content-[Unfollow]"
+                  : `bg-[#EDAE1D] text-black hover:text-[#EEF0F2] active:bg-[#065A82]
+                   active:text-white disabled:bg-[#065A82] disabled:text-white`)
+              }
+              disabled={
+                status == "unauthenticated" ||
+                session?.user?.user_id == userInfo?.id!
+              }
+              onClick={handleButtonClick}
+            >
+              {session?.user?.followings.includes(userInfo?.id!)
+                ? "Following"
+                : "Follow"}
             </button>
           </div>
         </div>
@@ -67,10 +99,16 @@ export default function Page({ params }: { params: { profile: string[] } }) {
 
         <div className="flex gap-2">
           <div className="text-[#4E598C]">
-            <strong className="text-[#EDAE1D]">1,3002</strong> Following
+            <strong className="text-[#EDAE1D]">
+              {userInfo?.followings.length}
+            </strong>{" "}
+            Following
           </div>
           <div className="text-[#4E598C]">
-            <strong className="text-[#EDAE1D]">2,330</strong> Followers
+            <strong className="text-[#EDAE1D]">
+              {userInfo?.followers.length}
+            </strong>{" "}
+            Followers
           </div>
         </div>
       </div>

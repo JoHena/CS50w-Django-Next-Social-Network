@@ -29,12 +29,12 @@ const Sidebar: React.FC = (props) => {
               <>
                 <NavLink
                   text="Following"
-                  href="Following"
+                  href="/following"
                   icon={<BookmarkIcon fontSize="large" />}
                 />
                 <NavLink
                   text="Profile"
-                  href="Profile"
+                  href={`${session.user?.name}`}
                   icon={<PersonIcon fontSize="large" />}
                 />
               </>

@@ -5,7 +5,12 @@ import SquabbleLogo from "../../Atoms/SquabbleLogo/SquabbleLogo";
 import Feed from "../Feed/Feed";
 import { useSession } from "next-auth/react";
 
-const Main: React.FC = () => {
+interface IMain {
+  onlyFollowing: boolean;
+}
+
+const Main: React.FC<IMain> = (props: IMain) => {
+  const { onlyFollowing } = props;
   const { data: session } = useSession();
   const [codeValue, setCodeValue] = useState(0);
 
@@ -15,14 +20,20 @@ const Main: React.FC = () => {
         <div className="hidden md:block">Home</div>
         <SquabbleLogo customize="md:hidden" />
       </h1>
-      {session && (
+
+      {!onlyFollowing && session && (
         <Dashboard
           user={session?.user?.user_id}
           personalize="p-4 border-b border-[#EDAE1D]"
           setCodeValue={setCodeValue}
         />
       )}
-      <Feed code={codeValue} />
+
+      <Feed
+        onlyFollowing={onlyFollowing}
+        user={onlyFollowing ? session?.user?.user_id : undefined}
+        code={codeValue}
+      />
     </div>
   );
 };
